@@ -6,7 +6,7 @@ import Featured from './components/Featured'
 import Newsletter from './components/Newsletter'
 import Partner from './components/Partner'
 
-const page = () => {
+const Page = () => {
   return (
     <div className='bg-white 2xl:max-w-7xl px-4 2xl:mx-auto'>
       <NavBar />
@@ -19,4 +19,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

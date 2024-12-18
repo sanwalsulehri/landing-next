@@ -39,31 +39,31 @@ const Featured = () => {
       },
   ];
 
-  const [ratings, setRatings] = useState<number[]>(Array(Cards.length).fill(0));
-  const [hovers, setHovers] = useState<number[]>(Array(Cards.length).fill(0));
+  const [ratings, setRatings] = useState(Array(Cards.length).fill(0));
+  const [hovers, setHovers] = useState(Array(Cards.length).fill(0));
 
   const stars = [1, 2, 3, 4, 5];
 
-  const getStarFill = (cardIndex: number, star: number) => {
+  const getStarFill = (cardIndex, star) => {
     const value = hovers[cardIndex] || ratings[cardIndex];
     if (star <= value) return "#F59914";
     if (star - value < 1) return `url(#partial-${cardIndex}-${star})`;
     return "#BEBEBE";
   };
 
-  const handleHover = (cardIndex: number, star: number) => {
+  const handleHover = (cardIndex, star) => {
     const updatedHovers = [...hovers];
     updatedHovers[cardIndex] = star;
     setHovers(updatedHovers);
   };
 
-  const handleLeave = (cardIndex: number) => {
+  const handleLeave = (cardIndex) => {
     const updatedHovers = [...hovers];
     updatedHovers[cardIndex] = 0;
     setHovers(updatedHovers);
   };
 
-  const handleRating = (cardIndex: number, star: number) => {
+  const handleRating = (cardIndex, star) => {
     const updatedRatings = [...ratings];
     updatedRatings[cardIndex] = star;
     setRatings(updatedRatings);
@@ -81,6 +81,8 @@ const Featured = () => {
 
   const isFirstCard = currentIndex === 0;
 
+  const [selectedOption, setSelectedOption] = useState('All Properties');
+
   return (
     <div className="my-16">
       <div>
@@ -90,6 +92,16 @@ const Featured = () => {
             Our featured properties
           </h1>
           <div className="flex items-center gap-4">
+            <select 
+              value={selectedOption}
+              onChange={(e) => setSelectedOption(e.target.value)}
+              className="mt-4 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-[#6965FD]"
+            >
+              <option value="All Properties">All Properties</option>
+              <option value="Houses">Houses</option>
+              <option value="Apartments">Apartments</option>
+              <option value="Villas">Villas</option>
+            </select>
             <div
               className={`w-[45px] text-black h-[45px] rounded-full ${
                 isFirstCard ? " text-black" : "bg-[#1F1F1F] text-white"

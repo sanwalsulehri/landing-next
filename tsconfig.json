@@ -27,16 +27,20 @@
         "./src/*"
       ]
     },
-    "types": [
-      "@types/react",
-      "@types/node"
-    ]
+    "types": []
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
+    "**/*.js",
+    "**/*.jsx",
+    "src/app/page.jsx",
+    "src/app/layout.jsx",
+    "src/app/components/Featured.jsx",
+    "src/app/components/Finished.jsx",
+    "src/app/components/Value.jsx",
+    "src/app/components/Partner.jsx",
+    "src/app/components/Newsletter.jsx",
+    "src/app/components/NavBar.jsx",
+    "src/app/components/HeroSection.jsx"
   ],
   "exclude": [
     "node_modules"

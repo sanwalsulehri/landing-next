@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import stepsBg from "../../../public/stepsBg.jpg";
 import Finished from "../components/Finished";
 
@@ -15,15 +15,68 @@ const steps = [
 
 const Page = () => {
   const [activeStep, setActiveStep] = useState(1);
+  const [formData, setFormData] = useState({
+    address: '',
+    propertyType: '',
+    bedrooms: '',
+    bathrooms: '',
+    squareFootage: '',
+    name: '',
+    email: '',
+    phone: '',
+    countryCode: ''
+  });
 
-  const handleStepClick = (id: number) => {
+  const addressInputRef = useRef(null);
+
+  useEffect(() => {
+    if (window.google && addressInputRef.current) {
+      const autocomplete = new google.maps.places.Autocomplete(addressInputRef.current);
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace();
+        handleInputChange('address', place.formatted_address || '');
+      });
+    }
+  }, []);
+
+  const handleStepClick = (id) => {
     setActiveStep(id);
   };
   
   
 
-  const goToNextStep = () => {
-    setActiveStep((prevStep) => prevStep + 1);
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const goToNextStep = async () => {
+    console.log(JSON.stringify(formData));
+  
+    if (activeStep === steps.length) {
+      try {
+        const response = await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
+        
+        setActiveStep(prev => prev + 1);
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Failed to submit form. Please try again.');
+      }
+    } else {
+      setActiveStep(prev => prev + 1);
+    }
   };
 
 
@@ -113,6 +166,9 @@ const Page = () => {
                         Address
                       </h2>
                       <input
+                        ref={addressInputRef}
+                        value={formData.address}
+                        onChange={(e) => handleInputChange('address', e.target.value)}
                         placeholder="Enter your street address for an accurate market report"
                         type="text"
                         className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-2.5"
@@ -131,13 +187,19 @@ const Page = () => {
                           "Townhouse",
                           "Multi-family home",
                           "land",
-                        ].map((item, idx) => {
-                          return (
-                            <button key={idx} className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
-                              {item}
-                            </button>
-                          );
-                        })}
+                        ].map((item, idx) => (
+                          <button 
+                            key={idx} 
+                            onClick={() => handleInputChange('propertyType', item)}
+                            className={`${
+                              formData.propertyType === item 
+                                ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
+                                : 'bg-[#FBFBFB] border-[#E1E1E1]'
+                            } whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px]`}
+                          >
+                            {item}
+                          </button>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -147,29 +209,41 @@ const Page = () => {
                         Select no of bedrooms
                       </h2>
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {["1+", "2+", "3+", "4+", "5+"].map((item, idx) => {
-                          return (
-                            <button key={idx} className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
-                              {item}
-                            </button>
-                          );
-                        })}
+                        {["1+", "2+", "3+", "4+", "5+"].map((item) => (
+                          <button
+                            key={item}
+                            onClick={() => handleInputChange('bedrooms', item)}
+                            className={`${
+                              formData.bedrooms === item 
+                                ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
+                                : 'bg-[#FBFBFB] border-[#E1E1E1]'
+                            } whitespace-nowrap border rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px]`}
+                          >
+                            {item}
+                          </button>
+                        ))}
                       </div>
                     </div>
                   )}
                   {step.id === 4 && (
                     <div className="">
                       <h2 className="text-[#170F49] text-[20px] font-medium">
-                        Select no of bedrooms
+                        Select no of bathrooms
                       </h2>
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {["1+", "2+", "3+", "4+", "5+"].map((item, idx) => {
-                          return (
-                            <button key={idx} className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
-                              {item}
-                            </button>
-                          );
-                        })}
+                        {["1+", "2+", "3+", "4+", "5+"].map((item) => (
+                          <button
+                            key={item}
+                            onClick={() => handleInputChange('bathrooms', item)}
+                            className={`${
+                              formData.bathrooms === item 
+                                ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
+                                : 'bg-[#FBFBFB] border-[#E1E1E1]'
+                            } whitespace-nowrap border rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px]`}
+                          >
+                            {item}
+                          </button>
+                        ))}
                       </div>
                     </div>
                   )}
@@ -179,7 +253,11 @@ const Page = () => {
                         Square Footage Range
                       </h2>
                       <div className="text-[#B5B5B5] cursor-pointer mt-3 font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-2.5 flex items-center justify-between gap-2 relative">
-                        <select className="appearance-none bg-transparent w-full outline-none text-left">
+                        <select 
+                          value={formData.squareFootage}
+                          onChange={(e) => handleInputChange('squareFootage', e.target.value)}
+                          className="appearance-none bg-transparent w-full outline-none text-left"
+                        >
                           <option value="">Select Square footage range</option>
                           <option value="0-500">Under 1,000 sq. ft.</option>
                           <option value="501-1000">1,000 - 1,500 sq. ft</option>
@@ -221,6 +299,8 @@ const Page = () => {
                           Name
                         </h2>
                         <input
+                          value={formData.name}
+                          onChange={(e) => handleInputChange('name', e.target.value)}
                           placeholder="Enter your full name"
                           type="text"
                           className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-2.5"
@@ -232,6 +312,8 @@ const Page = () => {
                           Email Address
                         </h2>
                         <input
+                          value={formData.email}
+                          onChange={(e) => handleInputChange('email', e.target.value)}
                           placeholder="Enter your email address"
                           type="text"
                           className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-2.5"
@@ -242,10 +324,11 @@ const Page = () => {
                         <h2 className="text-[#170F49] text-[20px] font-medium">
                           Phone Number
                         </h2>
-
                         <div className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] flex border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-1">
                           <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                             <select
+                              value={formData.countryCode}
+                              onChange={(e) => handleInputChange('countryCode', e.target.value)}
                               id="country"
                               name="country"
                               aria-label="Select Country"
@@ -270,6 +353,8 @@ const Page = () => {
                             </svg>
                           </div>
                           <input
+                            value={formData.phone}
+                            onChange={(e) => handleInputChange('phone', e.target.value)}
                             type="text"
                             name="phone-number"
                             id="phone-number"
