@@ -5,6 +5,7 @@ import Value from './components/Value'
 import Featured from './components/Featured'
 import Newsletter from './components/Newsletter'
 import Partner from './components/Partner'
+import './style.css'
 
 const page = () => {
   return (

@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import stepsBg from "../../../public/stepsBg.jpg";
 import Finished from "../components/Finished";
+import '../style.css'
+
 
 const steps = [
   { id: 1, active: true },
