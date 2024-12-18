@@ -63,7 +63,7 @@ const NavBar = () => {
 </div>
 
                 <button className="rounded-[8px] bg-[#6965FD] border-[#6965FD] border text-white md:text-[18px] font-medium px-2 sm:px-4 md:px-6 py-[7px] hover:bg-blue-600 hover:border-blue-600 leading-none">Download</button>
-                <Link href='/steps'>
+                <Link href='/loginSteps'>
                 <button className="rounded-[8px] bg-[#6965FD] border-[#6965FD] border text-white md:text-[18px] font-medium px-2 sm:px-4 md:px-6 py-[7px] hover:bg-blue-600 hover:border-blue-600 leading-none">Login</button>
                 </Link>
             </div>
