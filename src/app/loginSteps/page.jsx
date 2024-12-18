@@ -89,7 +89,7 @@ const Page = () => {
 
   return (
     <div
-      className="w-full min-h-screen h-full bg-center bg-cover relative"
+      className="w-full min-h-screen overflow-auto pt-20 h-full bg-center bg-cover relative"
       style={{ backgroundImage: `url(${stepsBg.src})` }}
     >
       <div className="bg-[#000000B0] backdrop-blur-[44px] h-full w-full absolute top-0 left-0"></div>
@@ -183,7 +183,7 @@ const Page = () => {
                       <h2 className="text-[#170F49] text-[20px] font-medium">
                         Select Type of Property
                       </h2>
-                      <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                      <div className="mt-3 flex flex-wrap gap-4">
                         {[
                           "Semi-detached",
                           "Condo",
@@ -198,7 +198,8 @@ const Page = () => {
                               formData.propertyType === item 
                                 ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
                                 : 'bg-[#FBFBFB] border-[#E1E1E1]'
-                            } whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px]`}
+                              } whitespace-nowrap border rounded-full py-1.5 sm:py-2.5 px-4 sm:px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-sm sm:text-[16px]`}
+
                           >
                             {item}
                           </button>
@@ -207,20 +208,27 @@ const Page = () => {
                     </div>
                   )}
                   {step.id === 3 && (
-                    <div className="">
+                      <div className="">
                       <h2 className="text-[#170F49] text-[20px] font-medium">
-                        Select no of bedrooms
+                      Select no of bedrooms
                       </h2>
-                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {["1+", "2+", "3+", "4+", "5+"].map((item) => (
-                          <button
-                            key={item}
-                            onClick={() => handleInputChange('bedrooms', item)}
+                      <div className="mt-3 flex flex-wrap gap-4">
+                        {[
+                          "1+",
+                          "2+",
+                          "3+",
+                          "4+",
+                          "5+",
+                        ].map((item, idx) => (
+                          <button 
+                            key={idx} 
+                            onClick={() => handleInputChange('propertyType', item)}
                             className={`${
-                              formData.bedrooms === item 
+                              formData.propertyType === item 
                                 ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
                                 : 'bg-[#FBFBFB] border-[#E1E1E1]'
-                            } whitespace-nowrap border rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px]`}
+                              } whitespace-nowrap border rounded-full py-1.5 sm:py-2.5 px-4 sm:px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-sm sm:text-[16px]`}
+
                           >
                             {item}
                           </button>
@@ -230,25 +238,32 @@ const Page = () => {
                   )}
                   {step.id === 4 && (
                     <div className="">
-                      <h2 className="text-[#170F49] text-[20px] font-medium">
-                        Select no of bathrooms
-                      </h2>
-                      <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        {["1+", "2+", "3+", "4+", "5+"].map((item) => (
-                          <button
-                            key={item}
-                            onClick={() => handleInputChange('bathrooms', item)}
-                            className={`${
-                              formData.bathrooms === item 
-                                ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
-                                : 'bg-[#FBFBFB] border-[#E1E1E1]'
-                            } whitespace-nowrap border rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px]`}
-                          >
-                            {item}
-                          </button>
-                        ))}
-                      </div>
+                    <h2 className="text-[#170F49] text-[20px] font-medium">
+                    Select no of bedrooms
+                    </h2>
+                    <div className="mt-3 flex flex-wrap gap-4">
+                      {[
+                        "1+",
+                        "2+",
+                        "3+",
+                        "4+",
+                        "5+",
+                      ].map((item, idx) => (
+                        <button 
+                          key={idx} 
+                          onClick={() => handleInputChange('propertyType', item)}
+                          className={`${
+                            formData.propertyType === item 
+                              ? 'bg-[#7D38DF1A] border-[#6965FD] text-[#6965FD]' 
+                              : 'bg-[#FBFBFB] border-[#E1E1E1]'
+                            } whitespace-nowrap border rounded-full py-1.5 sm:py-2.5 px-4 sm:px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-sm sm:text-[16px]`}
+
+                        >
+                          {item}
+                        </button>
+                      ))}
                     </div>
+                  </div>
                   )}
                   {step.id === 5 && (
                     <div className="">
@@ -259,7 +274,7 @@ const Page = () => {
                         <select 
                           value={formData.squareFootage}
                           onChange={(e) => handleInputChange('squareFootage', e.target.value)}
-                          className="appearance-none bg-transparent w-full outline-none text-left"
+                          className="appearance-none sm:text-[16px] text-xs bg-transparent w-full outline-none text-left"
                         >
                           <option value="">Select Square footage range</option>
                           <option value="0-500">Under 1,000 sq. ft.</option>
@@ -298,7 +313,7 @@ const Page = () => {
                   {step.id === 6 && (
                     <form className="flex flex-col gap-6">
                       <div className="">
-                        <h2 className="text-[#170F49] text-[20px] font-medium">
+                        <h2 className="text-[#170F49] sm:text-[20px] font-medium">
                           Name
                         </h2>
                         <input
@@ -306,12 +321,12 @@ const Page = () => {
                           onChange={(e) => handleInputChange('name', e.target.value)}
                           placeholder="Enter your full name"
                           type="text"
-                          className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-2.5"
+                          className="placeholder:text-[#B5B5B5] sm:placeholder:text-[16px] placeholder:text-sm mt-2 sm:mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-1.5 sm:py-2.5"
                         />
                       </div>
 
                       <div className="">
-                        <h2 className="text-[#170F49] text-[20px] font-medium">
+                        <h2 className="text-[#170F49] sm:text-[20px] font-medium">
                           Email Address
                         </h2>
                         <input
@@ -319,23 +334,24 @@ const Page = () => {
                           onChange={(e) => handleInputChange('email', e.target.value)}
                           placeholder="Enter your email address"
                           type="text"
-                          className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-2.5"
+                          className="placeholder:text-[#B5B5B5] sm:placeholder:text-[16px] placeholder:text-sm mt-2 sm:mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-1.5 sm:py-2.5"
                         />
                       </div>
 
                       <div className="">
-                        <h2 className="text-[#170F49] text-[20px] font-medium">
+                        <h2 className="text-[#170F49] sm:text-[20px] font-medium">
                           Phone Number
                         </h2>
-                        <div className="placeholder:text-[#B5B5B5] mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] flex border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-1">
-                          <div className="grid shrink-0 grid-cols-1 focus-within:relative">
+                        <div className=" mt-2 sm:mt-3 flex shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full sm:pl-4 pr-4 py-1.5 sm:py-2.5"
+                        >
+                          <div className="grid  sm:w-auto w-16 sm:shrink-0 grid-cols-1 focus-within:relative">
                             <select
                               value={formData.countryCode}
                               onChange={(e) => handleInputChange('countryCode', e.target.value)}
                               id="country"
                               name="country"
                               aria-label="Select Country"
-                              className="col-start-1 bg-transparent row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                              className="col-start-1 shrink-0 bg-transparent row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 sm:pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                             >
                               <option value="">Select a country</option>
                               <option value="US">US</option>
@@ -343,7 +359,7 @@ const Page = () => {
                               <option value="EU">EU</option>
                             </select>
                             <svg
-                              className="pointer-events-none col-start-1 row-start-1 mr-2 self-center justify-self-end text-gray-500 sm:size-4"
+                              className="pointer-events-none col-start-1 row-start-1 sm:mr-2 self-center justify-self-end sm:justify-self-end text-gray-500 size-4"
                               viewBox="0 0 16 16"
                               fill="currentColor"
                               aria-hidden="true"
@@ -361,7 +377,7 @@ const Page = () => {
                             type="text"
                             name="phone-number"
                             id="phone-number"
-                            className="block min-w-0 grow pl-1 pr-3 text-base bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                            className="block min-w-0 sm:w-auto w-full grow pl-1 pr-3 text-base bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
                             placeholder="Phone Number"
                           />
                         </div>
