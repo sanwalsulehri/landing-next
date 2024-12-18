@@ -40,7 +40,15 @@ const Value = () => {
                         <h1 className="text-[24px]  xl:mx-auto text-center lg:text-left font-semibold py-2.5">
                             {value.heading}
                         </h1>
-                        <p className={`font-[400] mx-auto ${index === 2 ? 'xl:w-[75%]' : 'xl:w-[70%]'} `}>{value.para}</p>
+                        <p className={`font-[400] mx-auto ${
+  index === 2 ? 'xl:w-[73%]' :
+  index === 0 ? 'xl:w-[65%]' :
+  index === 1 ? 'xl:w-[69%]' :
+  '' 
+}`}>
+  {value.para}
+</p>
+
                     </div>
                 ))}
             </div>
