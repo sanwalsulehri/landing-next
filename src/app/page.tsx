@@ -8,7 +8,7 @@ import Partner from './components/Partner'
 
 const page = () => {
   return (
-    <div className='bg-white 2xl:max-w-7xl px-4 2xl:mx-auto'>
+    <div className='bg-white 2xl:max-w-8xl px-4 2xl:mx-auto'>
       <NavBar />
       <HeroSection />
       <Value />

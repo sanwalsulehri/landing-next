@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      maxWidth: {
+        "8xl": "1500px", // Custom max-width for 8xl
+      },
     },
   },
   plugins: [],
