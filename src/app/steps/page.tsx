@@ -25,7 +25,6 @@ const Page = () => {
   const goToNextStep = () => {
     setActiveStep((prevStep) => prevStep + 1);
   };
-  
 
 
   if (activeStep > steps.length) {
@@ -150,7 +149,7 @@ const Page = () => {
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {["1+", "2+", "3+", "4+", "5+"].map((item, idx) => {
                           return (
-                            <button className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
+                            <button key={idx} className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
                               {item}
                             </button>
                           );
@@ -166,7 +165,7 @@ const Page = () => {
                       <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {["1+", "2+", "3+", "4+", "5+"].map((item, idx) => {
                           return (
-                            <button className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
+                            <button key={idx} className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
                               {item}
                             </button>
                           );
@@ -207,8 +206,6 @@ const Page = () => {
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
                               d="M7.485 7.00204L13.7226 0.764394L14.97 2.01175L8.10868 8.87307C7.94325 9.03844 7.71891 9.13135 7.485 9.13135C7.25109 9.13135 7.02675 9.03844 6.86132 8.87307L0 2.01175L1.24735 0.764394L7.485 7.00204Z"
                               fill="#5A5B69"
                             />

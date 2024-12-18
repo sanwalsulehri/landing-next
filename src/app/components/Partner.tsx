@@ -16,6 +16,7 @@ const Partner = () => {
             <h2 className=" mt-7 text-[38px] mb-14  font-[600] leading-[45.6px] text-[#000000]">
               Empowering Your Real <br /> Estate Journey
             </h2>
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p className="mt-4 font-[400] mb-10 text-[16px] leading-[24px] text-[#000000]">
               With nearly 20 years of experience in helping families and
               investors, we deliver unmatched market insights, personalized
@@ -26,6 +27,7 @@ const Partner = () => {
               every step of the way with flexible and competitive commission
               rates tailored to your needs.
             </p>
+
             <button className="mt-6 rounded-[40px] text-[16px] uppercase fo bg-[#6965FD] px-[30px] py-[17px] font-[400] leading-[19.2px] text-[#FEFEFF] hover:bg-blue-600 ">
               Contact Now
             </button>
