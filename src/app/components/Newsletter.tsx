@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import HeroImg from "../../../public/heroImg.png";
 import newsletterbg from "../../../public/newsletterbg.png";
 import Img from '../../../public/newsletterImg.png'
 
@@ -12,6 +11,7 @@ const Newsletter = () => {
   return (
     <>
       <div
+      onClick={()=> setIsBackgroundEnabled(isBackgroundEnabled)}
               style={{
                 background: isBackgroundEnabled
                   ? `linear-gradient(to right, #C1DEE8, #FBD9B9), url(${newsletterbg.src})`
@@ -22,7 +22,7 @@ const Newsletter = () => {
       
         className="my-20 xl:min-h-[457px]  relative w-full px-4 sm:px-10 py-16 mix-blend-multiply rounded-[15px]"
       >
-        <div className="xl:w-[50%] md:max-w-2xl md:mx-auto xl:mx-0 flex xl:text-left text-center flex-col xl:items-start items-center">
+        <div  className="xl:w-[50%] md:max-w-2xl md:mx-auto xl:mx-0 flex xl:text-left text-center flex-col xl:items-start items-center">
         
           <h1 className="font-semibold sm:text-[35px] text-[30px] md:text-[50px] py-5 leading-tight">
           Subscribe Our Newsletter

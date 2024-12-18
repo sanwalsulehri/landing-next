@@ -16,9 +16,11 @@ const steps = [
 const Page = () => {
   const [activeStep, setActiveStep] = useState(1);
 
-  const handleStepClick = (id) => {
+  const handleStepClick = (id: number) => {
     setActiveStep(id);
   };
+  
+  
 
   const goToNextStep = () => {
     setActiveStep((prevStep) => prevStep + 1);
@@ -132,7 +134,7 @@ const Page = () => {
                           "land",
                         ].map((item, idx) => {
                           return (
-                            <button className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
+                            <button key={idx} className="hover:bg-[#7D38DF1A] bg-[#FBFBFB] whitespace-nowrap border hover:border-[#6965FD] rounded-full py-2.5 px-10 font-[400] shadow-[0px_2px_8px_0px_#13124208] text-[16px] hover:text-[#6965FD]">
                               {item}
                             </button>
                           );
