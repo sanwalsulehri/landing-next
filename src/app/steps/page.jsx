@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import stepsBg from "../../../public/stepsBg.jpg";
 import Finished from "../components/Finished";
+import '../style.css'
+
 
 const steps = [
   { id: 1, active: true },
@@ -91,8 +93,9 @@ const Page = () => {
       style={{ backgroundImage: `url(${stepsBg.src})` }}
     >
       <div className="bg-[#000000B0] backdrop-blur-[44px] h-full w-full absolute top-0 left-0"></div>
-      <div className="border border-[#EFF0F6] rounded-[24px] py-10 px-8 z-[999] w-full max-w-[698px] bg-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex  gap-6 items-start ">
+     <div className="max-w-[698px] px-4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+     <div className="border border-[#EFF0F6] rounded-[24px] py-10 px-4 sm:px-8 z-[999] w-full  bg-white ">
+        <div className="flex sm:flex-row flex-col gap-2 sm:gap-6 items-start ">
           <div
             onClick={() => setActiveStep(activeStep - 1)}
             className="rotate-180 cursor-pointer mb-6 w-fit"
@@ -126,7 +129,7 @@ const Page = () => {
           <div className="w-full">
             <div className="flex  justify-between border-b w-full border-[#D9DBE9] pb-6 items-center gap-2">
               {steps.map((step) => (
-                <div key={step.id} className="flex items-center gap-3">
+                <div key={step.id} className="flex items-center sm:gap-3">
                   <div
                     className={`w-[22.50px] h-[22.50px] ${
                       activeStep >= step.id
@@ -138,9 +141,9 @@ const Page = () => {
                     {step.id}
                   </div>
                   <div
-                    className={`relative ${step.id === 6 ? "hidden" : "block"}`}
+                    className={`relative md:w-auto w-0 ${step.id === 6 ? "hidden" : "block"}`}
                   >
-                    <div className="h-1 w-[64px] bg-[#EFF0F6] rounded-full"></div>
+                    <div className="md:h-1 w-0 md:w-[64px] md:bg-[#EFF0F6] rounded-full"></div>
                     <div
                       className={`absolute h-full top-0 left-0 ${
                         activeStep >= step.id ? "bg-[#6965FD]" : "bg-[#EFF0F6]"
@@ -378,6 +381,7 @@ const Page = () => {
           </div>
         </div>
       </div>
+     </div>
     </div>
   );
 };

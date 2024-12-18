@@ -5,10 +5,11 @@ import Value from './components/Value'
 import Featured from './components/Featured'
 import Newsletter from './components/Newsletter'
 import Partner from './components/Partner'
+import './style.css'
 
 const Page = () => {
   return (
-    <div className='bg-white 2xl:max-w-7xl px-4 2xl:mx-auto'>
+    <div className='bg-white 2xl:max-w-8xl px-4 2xl:mx-auto'>
       <NavBar />
       <HeroSection />
       <Value />
