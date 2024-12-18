@@ -7,7 +7,7 @@ import Newsletter from './components/Newsletter'
 import Partner from './components/Partner'
 import './style.css'
 
-const page = () => {
+const Page = () => {
   return (
     <div className='bg-white 2xl:max-w-8xl px-4 2xl:mx-auto'>
       <NavBar />
@@ -20,4 +20,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
