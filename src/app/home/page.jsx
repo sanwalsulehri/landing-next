@@ -11,7 +11,7 @@ import Footer from '../components/Footer'
 
 const page = () => {
   return (
-    <div className=' 2xl:max-w-8xl  2xl:mx-auto'>
+    <div className=''>
       <HeroHome />
       <ExploreHome />
       <MarketReport />
