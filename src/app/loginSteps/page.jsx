@@ -111,17 +111,17 @@ const Page = () => {
               <path
                 d="M14.4301 5.92999L20.5001 12L14.4301 18.07"
                 stroke="#292D32"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke-miterlimit="10"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
               />
               <path
                 d="M3.5 12H20.33"
                 stroke="#292D32"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke-miterlimit="10"
-                stroke-linecap="round"
+                strokeLinecap="round"
                 stroke-linejoin="round"
               />
             </svg>
@@ -365,9 +365,9 @@ const Page = () => {
                               aria-hidden="true"
                             >
                               <path
-                                fill-rule="evenodd"
+                                fillRule="evenodd"
                                 d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
-                                clip-rule="evenodd"
+                                clipRule="evenodd"
                               />
                             </svg>
                           </div>
