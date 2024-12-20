@@ -27,7 +27,7 @@ const Value = () => {
 
     return (
         <div className='py-20'>
-            <p className="font-[400] text-center">Get My Home Value</p>
+            <p className="sm:text-[20px] font-medium text-center">Get My Home Value</p>
             <h1 className="lg:text-[50px] md:text-[40px] text-[30px] font-semibold text-center py-1">Everything should be this easy.</h1>
             <div className="my-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-5">
                 {Values.map((value, index) => (
