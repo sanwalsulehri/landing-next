@@ -120,9 +120,9 @@ const Featured = () => {
                   d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
                   stroke={isFirstCard ? "currentColor" : "#FEFEFF"}
                   strokeWidth="1.5"
-                  stroke-miterlimit="10"
+                  strokeMiterlimit="10"
                   strokeLinecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -141,9 +141,9 @@ const Featured = () => {
                   d="M8.91003 19.92L15.43 13.4C16.2 12.63 16.2 11.37 15.43 10.6L8.91003 4.08002"
                   stroke="#FEFEFF"
                   strokeWidth="1.5"
-                  stroke-miterlimit="10"
+                  strokeMiterlimit="10"
                   strokeLinecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>

@@ -4,13 +4,23 @@ import React, { useState } from "react";
 import logo from "../../../public/logo.svg";
 import Link from "next/link";
 import Image from "next/image";
+import HomeSteps from "./homeSteps";
 
 const HomeNavBar = () => {
   const [drawer, setdrawer] = useState(false);
+  const [steps, setsteps] = useState(false)
+
 
   const drawerHandler = () => {
     setdrawer((prev) => !prev);
   };
+
+  const stepsHandler = () => {
+    setsteps((prev)=>!prev)
+  }
+
+
+
 
   return (
     <>
@@ -37,7 +47,7 @@ const HomeNavBar = () => {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4">
-            <button className="md:py-3 py-1.5 sm:py-2 px-4 sm:px-5 md:px-[46px] rounded-full bg-[#6965FD] sm:text-[18px] font-semibold text-white hover:bg-opacity-80">
+            <button onClick={stepsHandler} className="md:py-3 py-1.5 sm:py-2 px-4 sm:px-5 md:px-[46px] rounded-full bg-[#6965FD] sm:text-[18px] font-semibold text-white hover:bg-opacity-80">
               Sign In
             </button>
             <div onClick={drawerHandler} className="lg:hidden block cursor-pointer">
@@ -101,6 +111,12 @@ const HomeNavBar = () => {
           )}
         </div>
       </div>
+
+
+{/* steps */}
+{steps && 
+      <HomeSteps handler={stepsHandler} />
+}
     </>
   );
 };

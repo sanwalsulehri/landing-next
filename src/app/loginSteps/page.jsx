@@ -112,17 +112,17 @@ const Page = () => {
                 d="M14.4301 5.92999L20.5001 12L14.4301 18.07"
                 stroke="#292D32"
                 strokeWidth="1.5"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M3.5 12H20.33"
                 stroke="#292D32"
                 strokeWidth="1.5"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>

@@ -7,6 +7,7 @@ import '../style.css'
 import CustomReport from '../components/CustomReport'
 import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
+import Steps from '../components/homeSteps'
 
 
 const page = () => {
@@ -23,4 +24,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page;
