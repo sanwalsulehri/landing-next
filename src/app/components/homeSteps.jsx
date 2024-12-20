@@ -93,9 +93,9 @@ const HomeSteps = ({handler}) => {
     if (!isVisible) return null;
   return (
     <>
-      <div className="flex z-[9999999999999999999999999999999999999999999999999] items-center flex-col fixed top-0 left-0 bg-transparent  justify-center  pt-5 h-screen w-full">
+      <div className="flex z-[9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999] items-center flex-col fixed top-0 left-0 bg-transparent  justify-center  pt-5 h-screen w-full">
         <div className="bg-[#000000B2] h-full w-full absolute top-0 left-0"></div>
-        <div className="max-w-[698px] no-scrollBar max-h-[95vh] overflow-auto px-4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+        <div className="max-w-[698px] no-scrollBar max-h-[95vh] overflow-auto px-4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full z-[999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999]">
           <div className="border  border-[#EFF0F6] rounded-[24px] py-10 px-4 sm:px-8 z-[999] w-full bg-white">
             <div className="flex   sm:flex-row-reverse justify-between flex-col gap-2 sm:gap-6 items-start">
               <div   onClick={handler} className="w-[31px] cursor-pointer border-b  border-[#D9DBE9] shrink-0 h-[31px] bg-[#6965FD] rounded-full flex items-center justify-center">
