@@ -1,13 +1,16 @@
+'use client'
+
+
 import React from 'react'
 import Image from 'next/image';
 import HomeNavBar from './HomeNavBar';
 import homehero from '../../../public/homehero.png'
 import herohomechart from '../../../public/herohomechart.png'
 
-const HeroHome = () => {
+const HeroHome = ({handler}) => {
   return (
     <div className='shadow-[0px_4px_24px_0px_#E8F9F733]    xl:min-h-[745px] '>
-      <HomeNavBar />
+      <HomeNavBar handler={handler} />
       <div className="bg-gradient-to-b relative from-[#E0DEF7] to-[#E0DEF700]  h-full w-full">
         <div className="max-w-7xl mx-auto px-2 py-[123px]"
         >
