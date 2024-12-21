@@ -16,10 +16,18 @@ const HeroSection = () => {
     if (!inputRef.current) return;
 
     autoCompleteRef.current = new google.maps.places.Autocomplete(inputRef.current, {
-      componentRestrictions: { country: "us" },
+      componentRestrictions: { country: "ca" },
       fields: ["address_components", "formatted_address", "geometry"],
       types: ["address"]
     });
+
+    const ontarioBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(41.6723, -95.1565),
+      new google.maps.LatLng(56.8515, -74.3441)
+    );
+    
+    autoCompleteRef.current.setBounds(ontarioBounds);
+    autoCompleteRef.current.setOptions({ strictBounds: true });
 
     autoCompleteRef.current.addListener("place_changed", () => {
       const place = autoCompleteRef.current?.getPlace();
