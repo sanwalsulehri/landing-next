@@ -42,7 +42,7 @@ const HeroSection = () => {
       <div className="my-14 xl:min-h-[617px] text-white relative w-full bg-gradient-to-r from-[#6965FD] to-[#FBD9B9] px-4 sm:px-10 py-16 rounded-[15px]">
         <div className="xl:w-[40%] flex xl:text-left text-center xl:items-start flex-col items-center">
         <p className="font-[500] sm:text-[16px] text-sm">Know Your Home’s True Worth in Minutes</p>
-        <h1 className="font-bold sm:text-[35px] text-[30px] md:text-[50px] xl:text-[67px] py-5 leading-tight">
+        <h1 className=" sm:text-[35px] font-bold text-[30px] md:text-[50px] xl:text-[67px] py-5 leading-tight">
         Home Value Calculator
         </h1>
         <p className="font-[500] sm:text-[16px] text-sm">Accurate and Instant Home Valuation at Your Fingertips.</p>
