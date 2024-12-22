@@ -40,7 +40,7 @@ const CustomReport = () => {
 
 
                 <div className="">
-                <h2 className="text-[#170F49]  font-medium sm:text-[18px]">
+                <h2 className="text-[#170F49]   sm:text-[18px] font-medium">
 
                 Select Report Type
                       </h2>
