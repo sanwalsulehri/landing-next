@@ -7,19 +7,19 @@ import HomeNavBar from './HomeNavBar';
 import homehero from '../../../public/homehero.png'
 import herohomechart from '../../../public/herohomechart.png'
 
-const HeroHome = ({handler}) => {
+const HeroHome = ({handler,signInhandler}) => {
   return (
     <div className='shadow-[0px_4px_24px_0px_#E8F9F733]    xl:min-h-[745px] '>
-      <HomeNavBar handler={handler} />
+      <HomeNavBar signInhandler={signInhandler} />
       <div className="bg-gradient-to-b relative from-[#E0DEF7] to-[#E0DEF700]  h-full w-full">
-        <div className="max-w-7xl mx-auto px-2 py-[123px]"
+        <div className="2xl:max-w-8xl max-w-7xl mx-auto px-2 py-[123px]"
         >
           <div className="xl:w-1/2 xl:text-left flex  flex-col items-center xl:items-start text-center pt-8">
           <h1 className="font-[700] text-[#000929] sm:text-[40px] text-[35px] md:text-[55px] leading-none">Unlock Local Market Insights and Trends</h1>
           <p className="font-medium sm:text-[22px] py-5">
           Discover housing market trends, values, and activity in<br className='xl:block hidden' /> your area with a personalized market report
           </p>
-          <button className="md:py-3 shadow-[0px_4px_34px_0px_#7D38DF30] py-1.5 sm:py-2 px-4 sm:px-5 md:px-7 mt-6 rounded-full bg-[#6965FD] sm:text-[18px] font-semibold text-white hover:bg-opacity-80">
+          <button onClick={handler} className="md:py-3 shadow-[0px_4px_34px_0px_#7D38DF30] py-1.5 sm:py-2 px-4 sm:px-5 md:px-7 mt-6 rounded-full bg-[#6965FD] sm:text-[18px] font-semibold text-white hover:bg-opacity-80">
           Get Market Report
             </button>
             <div className="flex text-left xl:mx-0 mx-auto  mt-10 items-start gap-2">

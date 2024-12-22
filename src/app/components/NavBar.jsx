@@ -1,10 +1,9 @@
 'use client'
 
-
 import React, { useState } from 'react'
 import Link from 'next/link'
 
-const NavBar = () => {
+const NavBar = ({signInhandler}) => {
   const [searchModal, setsearchModal] = useState(false)
   const [linksModal, setlinksModal] = useState(false)
 
@@ -17,6 +16,9 @@ const NavBar = () => {
     setlinksModal((prev) => !prev)
   }
 
+
+ 
+
   return (
     <>
     <div className="py-4 flex bg-white text-black items-center justify-between">
@@ -28,12 +30,12 @@ const NavBar = () => {
             <h1 className="lg:text-[50px] text-[25px] sm:text-[36px] font-medium">LOGO</h1>
             </div>
             <div className="xl:flex hidden items-center gap-6">
-              {['Home','Map Search','Home Valuation','Blog','Contact us'].map((link,idx)=>{
+              {['home','Map Search','Home Valuation','Blog','Contact us'].map((link,idx)=>{
                 return(
                     <Link
                     key={idx}
-                    href={"#"}
-                    className={`font-medium ${idx === 2 ? 'border-[#6965FD]' : 'border-transparent'} border-b-2 transition-all duration-200 hover:border-[#6965FD] leading-none pb-1 text-[18px]`}
+                    href={`/${link}`}
+                    className={`font-medium capitalize ${idx === 2 ? 'border-[#6965FD]' : 'border-transparent'} border-b-2 transition-all duration-200 hover:border-[#6965FD] leading-none pb-1 text-[18px]`}
                      >
                         {link}
                      </Link>
@@ -63,9 +65,8 @@ const NavBar = () => {
 </div>
 
                 <button className="rounded-[8px] bg-[#6965FD] border-[#6965FD] border text-white md:text-[18px] font-medium px-2 sm:px-4 md:px-6 py-[7px] hover:bg-blue-600 hover:border-blue-600 leading-none">Download</button>
-                <Link href='/loginSteps'>
-                <button className="rounded-[8px] bg-[#6965FD] border-[#6965FD] border text-white md:text-[18px] font-medium px-2 sm:px-4 md:px-6 py-[7px] hover:bg-blue-600 hover:border-blue-600 leading-none">Login</button>
-                </Link>
+                <button onClick={signInhandler} className="rounded-[8px] bg-[#6965FD] border-[#6965FD] border text-white md:text-[18px] font-medium px-2 sm:px-4 md:px-6 py-[7px] hover:bg-blue-600 hover:border-blue-600 leading-none">Login</button>
+                
             </div>
         </div>
     </div>
@@ -114,7 +115,9 @@ const NavBar = () => {
           </div>
     }
 
- 
+
+
+
     </>
   )
 }

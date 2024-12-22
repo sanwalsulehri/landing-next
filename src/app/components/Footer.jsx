@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="mt-16  bg-gradient-to-r from-[#F7F7FD80] via-[#F7F7FD] to-[#F7F7FD80]px-2 py-4 w-full">
-      <div className="max-w-7xl px-2 gap-4 mx-auto sm:flex-row flex-col flex items-center justify-between">
+      <div className="max-w-7xl 2xl:max-w-8xl px-2 gap-4 mx-auto sm:flex-row flex-col flex items-center justify-between">
         <h6 className="text-[#000929] sm:text-left text-center font-medium ">
           ©2024 Real estate. All rights reserved
         </h6>

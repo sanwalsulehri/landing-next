@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HomeSteps from "./homeSteps";
 
-const HomeNavBar = ({handler}) => {
+const HomeNavBar = ({signInhandler}) => {
   const [drawer, setdrawer] = useState(false);
 
 
@@ -21,8 +21,8 @@ const HomeNavBar = ({handler}) => {
 
   return (
     <>
-      <nav className="bg-[#EEECFB] px-2">
-        <div className="max-w-7xl  min-h-[82px] mx-auto flex items-center justify-between gap-2">
+      <nav className="bg-[#E0DEF7] px-2">
+        <div className="max-w-7xl 2xl:max-w-8xl  min-h-[82px] mx-auto flex items-center justify-between gap-2">
           <Link href={"/home"}>
             <Image src={logo} alt="logo" />
           </Link>
@@ -44,7 +44,7 @@ const HomeNavBar = ({handler}) => {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4">
-            <button onClick={handler} className="md:py-3 py-1.5 sm:py-2 px-4 sm:px-5 md:px-[46px] rounded-full bg-[#6965FD] sm:text-[18px] font-semibold text-white hover:bg-opacity-80">
+            <button onClick={signInhandler} className="md:py-3 py-1.5 sm:py-2 px-4 sm:px-5 md:px-[46px] rounded-full bg-[#6965FD] sm:text-[18px] font-semibold text-white hover:bg-opacity-80">
               Sign In
             </button>
             <div onClick={drawerHandler} className="lg:hidden block cursor-pointer">
