@@ -2,6 +2,7 @@
 /// <reference types="@types/google.maps" />
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import HeroImg from '../../../public/heroImg.png'
 
 const HeroSection = () => {
@@ -56,9 +57,12 @@ const HeroSection = () => {
               className='bg-[#FEFEFF] w-full rounded-full pr-32 placeholder:truncate sm:pr-40 pl-4 py-3 text-black outline-none placeholder:text-sm sm:placeholder:text-[16px]' 
               placeholder='Enter Your Property Address' 
             />
+                <Link href='/loginSteps'>
+
             <button className="bg-[#6965FD] px-4 sm:px-6 py-2.5 absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full text-[#FEFEFF] sm:text-[16px] text-sm sm:font-semibold">
               Get Valuation
             </button>
+            </Link>
         </div>
         </div>
         <div className="absolute xl:block hidden xl:w-auto w-1/2 -bottom-14 right-0">

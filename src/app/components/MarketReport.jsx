@@ -28,7 +28,7 @@ const MarketReport = () => {
 
   return (
     <div className='pb-24 pt-8 px-2'>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl 2xl:max-w-8xl mx-auto">
             <h1 className="font-[700] text-[35px] sm:text-[40px] md:text-[48px] text-center text-[#252756]">What’s Inside Your Market Report?</h1>
             <p className="font-[400] md:text-[18px] pt-[2px] text-[#464646] text-center">
             Get insights into market trends, pricing, and property values. Access real-time data,<br /> including sold home statistics and market predictions.

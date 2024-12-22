@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Img from "../../../public/realstate.png";
 
-const Partner = () => {
+const Partner = ({signInhandler}) => {
   return (
     <>
       <div className="w-full pt-10">
@@ -11,7 +11,7 @@ const Partner = () => {
             Your Trusted Real Estate <br /> Partner
           </h1>
         </div>
-        <div className="max-w-[1309.99px] mx-auto h-[449px] gap-10 items-center justify-between bg-white p-6 md:flex">
+        <div className=" gap-10 items-center justify-between bg-white py-6 md:flex">
           <div className="mb-6 md:mt-28 lg:-mt-14 md:mb-0 md:w-[55%]">
             <h2 className="mt-7 text-[38px] mb-14 font-[600] leading-[45.6px] text-[#000000]">
               Empowering Your Real <br /> Estate Journey
@@ -27,7 +27,7 @@ const Partner = () => {
               rates tailored to your needs.
             </p>
 
-            <button className="mt-6 rounded-[40px] text-[16px] uppercase bg-[#6965FD] px-[30px] py-[17px] font-[400] leading-[19.2px] text-[#FEFEFF] hover:bg-blue-600">
+            <button onClick={signInhandler} className="mt-6 rounded-[40px] text-[16px] uppercase bg-[#6965FD] px-[30px] py-[17px] font-[400] leading-[19.2px] text-[#FEFEFF] hover:bg-blue-600">
               Contact Now
             </button>
           </div>

@@ -86,7 +86,7 @@ const Featured = () => {
   return (
     <div className="my-16">
       <div>
-        <p className="font-[400]">Checkout our latest inventory</p>
+        <p className="font-[400] sm:text-[22px]">Checkout our latest inventory</p>
         <div className="flex flex-wrap gap-10 items-center justify-between">
           <h1 className="font-semibold text-[30px] md:text-[40px] lg:text-[50px]">
             Our featured properties

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import stepsBg from "../../../public/stepsBg.jpg";
 import Finished from "../components/Finished";
 import '../style.css'
-
+import { useRouter } from 'next/navigation';
 
 const steps = [
   { id: 1, active: true },
@@ -16,7 +16,9 @@ const steps = [
 ];
 
 const Page = () => {
-  const [activeStep, setActiveStep] = useState(1);
+  const router = useRouter();
+  const [activeStep, setActiveStep] = React.useState(1);
+  // const [activeStep, setActiveStep] = useState(1);
   const [formData, setFormData] = useState({
     address: '',
     propertyType: '',
@@ -86,6 +88,15 @@ const Page = () => {
     return <Finished />;
   }
 
+  const handlePrevious = () => {
+    if (activeStep === 1) {
+      router.push('/'); // Navigate to the root route
+    } else {
+      setActiveStep(activeStep - 1); // Decrement the active step
+    }
+  };
+ 
+
 
   return (
     <div
@@ -97,7 +108,7 @@ const Page = () => {
      <div className="border border-[#EFF0F6] rounded-[24px] py-10 px-4 sm:px-8 z-[999] w-full  bg-white ">
         <div className="flex sm:flex-row flex-col gap-2 sm:gap-6 items-start ">
           <div
-            onClick={() => setActiveStep(activeStep - 1)}
+            onClick={handlePrevious}
             className="rotate-180 cursor-pointer mb-6 w-fit"
           >
             <svg

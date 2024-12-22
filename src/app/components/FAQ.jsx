@@ -27,7 +27,7 @@ const FAQ = () => {
 
     return (
         <div className="bg-[#F3F2FC] py-14">
-            <div className="px-2 max-w-6xl mx-auto">
+            <div className="px-2 max-w-6xl 2xl:max-w-8xl mx-auto">
                 <h1 className="md:text-[48px] text-center sm:text-[40px] text-[35px] font-[700] text-[#141415]">
                     Frequently Asked Questions
                 </h1>
