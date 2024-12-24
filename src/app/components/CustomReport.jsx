@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import formImage from '../../../public/formImg.png'
 import Image from 'next/image'
