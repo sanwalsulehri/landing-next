@@ -11,6 +11,7 @@ import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
 import HomeSteps from '../components/homeSteps'
 import Login from '../components/Login'
+import Newsletter from '../components/Newsletter'
 
 
 const page = () => {
@@ -35,7 +36,9 @@ const page = () => {
       <ExploreHome />
       <MarketReport />
       <HomeWonors />
-      <CustomReport />
+      <div className="2xl:max-w-8xl max-w-7xl mx-auto px-2">
+      <Newsletter />
+      </div>
       <FAQ />
       <Footer />
 

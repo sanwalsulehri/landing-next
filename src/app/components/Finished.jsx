@@ -1,3 +1,5 @@
+
+'use client'
 import React from 'react'
 import stepsBg from "../../../public/stepsBg.jpg";
 import Link from 'next/link';
