@@ -93,13 +93,14 @@ const ExploreHome = () => {
             <input
               type="text"
               placeholder={selectedCard.heading}
-              className="block w-full border border-gray-300 rounded-md shadow-sm p-2"
+              className="border rounded-full bg-[#D9D9D933] border-[#DFDFDFB2] px-5 py-2 w-full text-[#747171] placeholder:text-[#747171] placeholder:text-xs text-sm font-[400] outline-none"
+
             />
             <div className="flex justify-end">
 
             <button
               onClick={closeModal}
-              className="mt-4 bg-[#6965FD]  text-white px-4 py-2 rounded-md hover:bg-[#5754e6] transition"
+              className="mt-4 bg-[#6965FD] rounded-full text-white px-6 py-2 hover:bg-[#5754e6] transition"
             >
               Submit
             </button>
