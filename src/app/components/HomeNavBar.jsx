@@ -14,11 +14,6 @@ const HomeNavBar = ({signInhandler}) => {
     setdrawer((prev) => !prev);
   };
 
- 
-
-
-
-
   return (
     <>
       <nav className="bg-[#E0DEF7] px-2">
