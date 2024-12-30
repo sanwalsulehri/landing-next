@@ -15,7 +15,7 @@ const steps = [
   { id: 6 },
 ];
 
-const Page = () => {
+const EveluationSteps = ({address}) => {
   const router = useRouter();
   const [activeStep, setActiveStep] = React.useState(1);
   // const [activeStep, setActiveStep] = useState(1);
@@ -99,8 +99,10 @@ const Page = () => {
 
 
   return (
+    <div className="fixed z-[99999999999999999999999999999999999999999999999] top-0 left-0">
+      <div className="bg-[#000000]/20  h-screen w-screen absolute top-0 left-0"></div>
     <div
-      className="w-full min-h-screen overflow-auto pt-20 h-full bg-center bg-cover relative"
+      className="fixed h-screen left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999999] overflow-auto pt-20 w-screen bg-center bg-cover "
       style={{ backgroundImage: `url(${stepsBg.src})` }}
     >
       <div className="bg-[#000000B0] backdrop-blur-[44px] h-full w-full absolute top-0 left-0"></div>
@@ -181,7 +183,7 @@ const Page = () => {
                       </h2>
                       <input
                         ref={addressInputRef}
-                        value={formData.address}
+                        value={address}
                         onChange={(e) => handleInputChange('address', e.target.value)}
                         placeholder="Enter your street address for an accurate market report"
                         type="text"
@@ -410,7 +412,8 @@ const Page = () => {
       </div>
      </div>
     </div>
+    </div>
   );
 };
 
-export default Page;
+export default EveluationSteps;
