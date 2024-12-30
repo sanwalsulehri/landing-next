@@ -11,9 +11,9 @@ import HeroImg from '../../../public/heroImg.png'
 
 const HeroHome = ({ handler, signInhandler }) => {
   return (
-    <div className='shadow-[0px_4px_24px_0px_#E8F9F733]    xl:min-h-[745px] '>
+    <div className='shadow-[0px_4px_24px_0px_#E8F9F733] relative   xl:min-h-[745px] '>
       <HomeNavBar signInhandler={signInhandler} />
-      <div className="bg-gradient-to-b relative from-[#E0DEF7] to-[#E0DEF700]  h-full w-full">
+      <div className="bg-gradient-to-b  from-[#E0DEF7] to-[#E0DEF700]  h-full w-full">
         <div className="2xl:max-w-8xl max-w-7xl mx-auto px-2 py-[153px]"
         >
           <div className="xl:w-[45%] xl:text-left flex  flex-col items-center xl:items-start text-center pt-8">
@@ -37,7 +37,7 @@ const HeroHome = ({ handler, signInhandler }) => {
 
           <div className="absolute xl:block hidden right-0 bottom-0 h-fit w-1/2">
             <Image src={HeroImg} alt="img" />
-            <div className="-top-32 -left-16 absolute">
+            <div className="-top-10 -left-16 absolute">
               <Image src={herohomechart} className='w-auto h-[350px]' width={500} height={500} alt='chart' />
             </div>
           </div>

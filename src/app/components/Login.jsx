@@ -31,6 +31,16 @@ const Login = ({ signInhandler }) => {
     setshowThanksModal(true);
   };
   
+  const [isSignup, setIsSignup] = useState(false); // State to toggle between login and signup
+
+  const handleSignupClick = () => {
+    setIsSignup(true);
+  };
+
+  const handleclick = () => {
+    setIsSignup(false);
+    // Add login logic here
+  };
 
 
   const [isFirstOn, setIsFirstOn] = useState(false); 
@@ -70,78 +80,111 @@ const Login = ({ signInhandler }) => {
         ></div>
 
         {/* First Modal */}
-        {showFirstModal && (
-          <div className="overflow-auto absolute top-1/2 -translate-y-1/2 z-[999] bg-white max-w-[98%] sm:max-w-[523px] sm:h-auto h-[90%] w-full px-4 py-12 rounded-[20px] mx-auto">
-            <form className="max-w-[302px] mx-auto">
-              <div className="shadow-[0px_4px_4px_0px_#00000040] rounded-[20px] overflow-hidden grid grid-cols-2">
-                <button className="py-1.5 bg-[#6965FD] text-white font-[700] text-center cursor-pointer">
-                  Login
-                </button>
-                <button className="py-1.5 bg-[#F9F9F9B2] hover:bg-[#6965FD] hover:text-white text-[#7D7AED] font-[700] text-center cursor-pointer border-l border-[#77798033]">
-                  Signup
-                </button>
-              </div>
+        showFirstModal && (
+      <div className="overflow-auto absolute top-1/2 max-h-[97vh] h-fit -translate-y-1/2 z-[999] bg-white max-w-[98%] sm:max-w-[523px] sm:h-auto h-[90%] w-full px-4 py-12 rounded-[20px] mx-auto">
+        <form className="max-w-[302px] mx-auto">
+          <div className="shadow-[0px_4px_4px_0px_#00000040] rounded-[20px] overflow-hidden grid grid-cols-2">
+            <button
+              type="button"
+              onClick={handleclick}
+              className={`py-1.5 ${
+                !isSignup ? 'bg-[#6965FD] text-white' : 'bg-[#F9F9F9B2] text-[#7D7AED]'
+              } font-[700] text-center cursor-pointer`}
+            >
+              Login
+            </button>
+            <button
+              type="button"
+              onClick={handleSignupClick}
+              className={`py-1.5 ${
+                isSignup ? 'bg-[#6965FD] text-white' : 'bg-[#F9F9F9B2] text-[#7D7AED]'
+              } font-[700] text-center cursor-pointer border-l border-[#77798033]`}
+            >
+              Signup
+            </button>
+          </div>
 
-              <div className="mx-auto w-fit pt-10">
-                <Image alt="we" src={welcome} />
-              </div>
+          <div className="mx-auto w-fit pt-10">
+            <Image alt="welcome" src={welcome} />
+          </div>
 
-              <div className="font-[400] tracking-tighter pt-3 text-center text-sm">
-                Still don't have an account? 
-                <a href="#" className="underline hover:text-[#6965FD]">
-                  Sign up
-                </a>
-              </div>
+          <div className="font-[400] tracking-tighter pt-3 text-center text-sm">
+            Still don't have an account?{' '}
+            <a href="#" className="underline hover:text-[#6965FD]">
+              Sign up
+            </a>
+          </div>
 
-              <div className="pt-8">
-                <label htmlFor="email" className="font-[300] text-xs pl-5">
-                  Email:
+          {/* Common Input for Email */}
+          <div className="pt-8">
+            <label htmlFor="email" className="font-[300] text-xs pl-5">
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="househunter@gmail.com"
+              className="border rounded-full bg-[#D9D9D933] border-[#DFDFDFB2] px-5 py-2 w-full text-[#747171] placeholder:text-[#747171] placeholder:text-xs text-sm font-[400] outline-none"
+            />
+          </div>
+
+          {/* Show Name and Password Inputs in Signup Mode */}
+          {isSignup && (
+            <>
+              <div className="pt-4">
+                <label htmlFor="name" className="font-[300] text-xs pl-5">
+                  Name:
                 </label>
                 <input
-                  type="email"
-                  id="email"
-                  placeholder="househunter@gmail.com"
+                  type="text"
+                  id="name"
+                  placeholder="John Doe"
                   className="border rounded-full bg-[#D9D9D933] border-[#DFDFDFB2] px-5 py-2 w-full text-[#747171] placeholder:text-[#747171] placeholder:text-xs text-sm font-[400] outline-none"
                 />
               </div>
-
-              <button
-                onClick={handleLoginClick}
-                type="button"
-                className="bg-[#6965FD] mt-4 font-[700] text-white py-2 w-full rounded-full text-center"
-              >
-                Login
-              </button>
-            </form>
-
-            <div className="pt-10 max-w-[360px] mx-auto">
-              <div className="relative bg-black h-[1px] w-full">
-                <div className="min-w-[36px] text-xs font-[300] absolute top-1/2 left-1/2 bg-white min-h-[16px] text-center -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
-                  OR
-                </div>
+              <div className="pt-4">
+                <label htmlFor="password" className="font-[300] text-xs pl-5">
+                  Password:
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="********"
+                  className="border rounded-full bg-[#D9D9D933] border-[#DFDFDFB2] px-5 py-2 w-full text-[#747171] placeholder:text-[#747171] placeholder:text-xs text-sm font-[400] outline-none"
+                />
               </div>
+            </>
+          )}
 
-              <div className="shadow-[0px_4px_4px_0px_#00000040] bg-[#F9F9F9B2] border border-[#77798033] max-h-[38px] mt-10 max-w-[362px] mx-auto rounded-[20px] overflow-hidden grid grid-cols-2">
-                <button className="py-1.5 hover:bg-gray-100 flex items-center gap-1 sm:gap-3 font-[300] text-[10px] sm:text-xs justify-center text-center cursor-pointer">
-                  <Image
-                    src={Google}
-                    className="sm:w-6 w-4 h-4 sm:h-6 object-cover"
-                    alt="Google"
-                  />
-                  Sign in with Google
-                </button>
-                <button className="py-1.5 border-l border-[#C5C5C5] hover:bg-gray-100 flex items-center gap-1 sm:gap-3 font-[300] text-[10px] sm:text-xs justify-center text-center cursor-pointer">
-                  <Image
-                    src={apple}
-                    className="sm:w-6 w-4 h-4 sm:h-6 object-cover"
-                    alt="Apple"
-                  />
-                  Sign in with Apple
-                </button>
-              </div>
+          <button
+            type="button"
+            onClick={isSignup ? handleSignupClick : handleLoginClick}
+            className="bg-[#6965FD] mt-4 font-[700] text-white py-2 w-full rounded-full text-center"
+          >
+            {isSignup ? 'Signup' : 'Login'}
+          </button>
+        </form>
+
+        <div className="pt-10 max-w-[360px] mx-auto">
+          <div className="relative bg-black h-[1px] w-full">
+            <div className="min-w-[36px] text-xs font-[300] absolute top-1/2 left-1/2 bg-white min-h-[16px] text-center -translate-y-1/2 -translate-x-1/2 flex items-center justify-center">
+              OR
             </div>
           </div>
-        )}
+
+          <div className="shadow-[0px_4px_4px_0px_#00000040] bg-[#F9F9F9B2] border border-[#77798033] max-h-[38px] mt-10 max-w-[362px] mx-auto rounded-[20px] overflow-hidden grid grid-cols-2">
+            <button className="py-1.5 hover:bg-gray-100 flex items-center gap-1 sm:gap-3 font-[300] text-[10px] sm:text-xs justify-center text-center cursor-pointer">
+              <Image src={Google} className="sm:w-6 w-4 h-4 sm:h-6 object-cover" alt="Google" />
+              Sign in with Google
+            </button>
+            <button className="py-1.5 border-l border-[#C5C5C5] hover:bg-gray-100 flex items-center gap-1 sm:gap-3 font-[300] text-[10px] sm:text-xs justify-center text-center cursor-pointer">
+              <Image src={apple} className="sm:w-6 w-4 h-4 sm:h-6 object-cover" alt="Apple" />
+              Sign in with Apple
+            </button>
+          </div>
+        </div>
+      </div>
+    )
 
         {/* Second Modal */}
         {showSecondModal && (
@@ -195,7 +238,7 @@ const Login = ({ signInhandler }) => {
 
         {/* Third Modal */}
         {showThirdModal && (
-          <div className="overflow-auto h-[97vh] absolute top-1/2 -translate-y-1/2 z-[999] bg-white max-w-[98%] sm:max-w-[523px]  w-full px-4 py-12 rounded-[20px] mx-auto">
+          <div className="overflow-auto h-fit max-h-[95vh] absolute top-1/2 -translate-y-1/2 z-[999] bg-white max-w-[98%] sm:max-w-[523px]  w-full px-4 py-12 rounded-[20px] mx-auto">
             <form>
               <div  className="max-w-[399px] flex flex-col mx-auto">
               <h1
@@ -226,7 +269,7 @@ const Login = ({ signInhandler }) => {
                       className={`w-[18px] h-[18px] border-[#CCCCCC] border rounded-full transition-transform 
             ${
               isFirstOn
-                ? "translate-x-[24px] bg-white"
+                ? "translate-x-[27px] bg-white"
                 : "translate-x-[2px] bg-[#F4F4F4]"
             }`}
                     ></div>
