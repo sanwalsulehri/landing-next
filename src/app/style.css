@@ -3,3 +3,19 @@
 *{
     font-family: "Inter", serif;
 }
+
+.autocomplete-suggestions {
+    position: absolute; /* Ensure it's positioned correctly */
+    z-index: 2051 !important; /* Lower z-index for suggestions */
+  }
+
+  .pac-container {
+    z-index: 2051 !important;
+}
+
+.pac-target-input {
+    z-index: 2051 !important;
+}
+.pac-container {
+    z-index: 2051; /* Set this higher than the modal's z-index */
+  }
