@@ -16,6 +16,7 @@ import Newsletter from '../components/Newsletter'
 
 const page = () => {
   const [steps, setsteps] = useState(false)
+  
 
   const stepsHandler = () => {
     setsteps((prev)=>!prev)
