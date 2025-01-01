@@ -7,6 +7,7 @@ import HomeNavBar from './HomeNavBar';
 import homehero from '../../../public/homehero.png'
 import herohomechart from '../../../public/herohomechart.png'
 import HeroImg from '../../../public/heroImg.png'
+import EveluationSteps from './EveluationSteps'
 
 
 const HeroHome = ({ handler, signInhandler }) => {
@@ -35,9 +36,11 @@ const HeroHome = ({ handler, signInhandler }) => {
             </div>
           </div>
 
-          <div className="absolute xl:block hidden right-0 bottom-0 h-fit w-1/2">
-            <Image src={HeroImg} alt="img" />
-            <div className="-top-10 -left-16 absolute">
+          {/* <EveluationSteps /> */}
+
+          <div className="absolute   xl:block hidden right-0 bottom-0 h-fit w-1/2">
+            <Image className='ml-auto' src={HeroImg} alt="img" />
+            <div className="top-36 left-12 absolute">
               <Image src={herohomechart} className='w-auto h-[350px]' width={500} height={500} alt='chart' />
             </div>
           </div>

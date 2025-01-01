@@ -7,10 +7,10 @@ import '../style.css'
 import { useRouter } from 'next/navigation';
 
 const steps = [
-  { id: 1, active: true },
+  { id: 1, active: false },
   { id: 2, active: false },
   { id: 3, active: false },
-  { id: 4, active: true },
+  { id: 4, active: false },
   { id: 5, active: false },
   { id: 6 },
 ];
@@ -89,8 +89,12 @@ const EveluationSteps = ({address}) => {
   }
 
   const handlePrevious = () => {
-    if (activeStep === 1) {
-      router.push('/'); // Navigate to the root route
+    if (activeStep === 1) { 
+      if (window.history.length > 1) {
+        router.back(); // Go back if there's a valid history entry
+      } else {
+        router.push("/"); // Fallback to a specific route
+      }
     } else {
       setActiveStep(activeStep - 1); // Decrement the active step
     }
