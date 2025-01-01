@@ -111,7 +111,7 @@ const EveluationSteps = ({address}) => {
     >
       <div className="bg-[#000000B0] backdrop-blur-[44px] h-full w-full absolute top-0 left-0"></div>
      <div className="max-w-[698px] px-4 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
-     <div className="border border-[#EFF0F6] rounded-[24px] py-10 px-4 sm:px-8 z-[999] w-full  bg-white ">
+     <div className="border border-[#EFF0F6] max-h-[90vh] overflow-auto rounded-[24px] py-10 px-4 sm:px-8 z-[999] w-full  bg-white ">
         <div className="flex sm:flex-row flex-col gap-2 sm:gap-6 items-start ">
           <div
             onClick={handlePrevious}
@@ -328,6 +328,82 @@ const EveluationSteps = ({address}) => {
                     </div>
                   )}
                   {step.id === 6 && (
+                    <form className="flex flex-col gap-6">
+                      <div className="">
+                        <h2 className="text-[#170F49] sm:text-[20px] font-medium">
+                          Name
+                        </h2>
+                        <input
+                          value={formData.name}
+                          onChange={(e) => handleInputChange('name', e.target.value)}
+                          placeholder="Enter your full name"
+                          type="text"
+                          className="placeholder:text-[#B5B5B5] sm:placeholder:text-[16px] placeholder:text-sm mt-2 sm:mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-1.5 sm:py-2.5"
+                        />
+                      </div>
+
+                      <div className="">
+                        <h2 className="text-[#170F49] sm:text-[20px] font-medium">
+                          Email Address
+                        </h2>
+                        <input
+                          value={formData.email}
+                          onChange={(e) => handleInputChange('email', e.target.value)}
+                          placeholder="Enter your email address"
+                          type="text"
+                          className="placeholder:text-[#B5B5B5] sm:placeholder:text-[16px] placeholder:text-sm mt-2 sm:mt-3 placeholder:font-[400] shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full px-4 py-1.5 sm:py-2.5"
+                        />
+                      </div>
+
+                      <div className="">
+                        <h2 className="text-[#170F49] sm:text-[20px] font-medium">
+                          Phone Number
+                        </h2>
+                        <div className=" mt-2 sm:mt-3 flex shadow-[0px_2px_8px_0px_#13124208] border border-[#E1E1E1] bg-[#FBFBFB] w-full rounded-full sm:pl-4 pr-4 py-1.5 sm:py-2.5"
+                        >
+                          <div className="grid  sm:w-auto w-16 sm:shrink-0 grid-cols-1 focus-within:relative">
+                            <select
+                              value={formData.countryCode}
+                              onChange={(e) => handleInputChange('countryCode', e.target.value)}
+                              id="country"
+                              name="country"
+                              aria-label="Select Country"
+                              className="col-start-1 shrink-0 bg-transparent row-start-1 w-full appearance-none rounded-md py-1.5 pl-3 sm:pr-7 text-base text-gray-500 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                            >
+                              <option value="">Select a country</option>
+                              <option value="US">US</option>
+                              <option value="CA">CA</option>
+                              <option value="EU">EU</option>
+                            </select>
+                            <svg
+                              className="pointer-events-none col-start-1 row-start-1 sm:mr-2 self-center justify-self-end sm:justify-self-end text-gray-500 size-4"
+                              viewBox="0 0 16 16"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          </div>
+                          <input
+                            value={formData.phone}
+                            onChange={(e) => handleInputChange('phone', e.target.value)}
+                            type="text"
+                            name="phone-number"
+                            id="phone-number"
+                            className="block min-w-0 sm:w-auto w-full grow pl-1 pr-3 text-base bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                            placeholder="Phone Number"
+                          />
+                        </div>
+                      </div>
+                    </form>
+                  )}
+
+
+                   {step.id === 6 && (
                     <form className="flex flex-col gap-6">
                       <div className="">
                         <h2 className="text-[#170F49] sm:text-[20px] font-medium">

@@ -8,6 +8,7 @@ import Featured from './components/Featured'
 import Newsletter from './components/Newsletter'
 import Partner from './components/Partner'
 import Login from './components/Login'
+import Footer from './components/Footer'
 import './style.css'
 
 const Page = () => {
@@ -26,6 +27,7 @@ const Page = () => {
       <Featured />
       <Partner signInhandler={signInhandler} />
       <Newsletter />
+      <Footer />
 
 
       {signInModal && 

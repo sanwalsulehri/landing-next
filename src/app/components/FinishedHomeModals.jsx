@@ -48,7 +48,7 @@ const FinishedHomeModals = () => {
 
 
 
-<div className="flex w-[70%] mx-auto mt-12 items-center justify-between gap-2 flex-wrap">
+<div className="flex w-[70%] mx-auto mt-12 items-center justify-between gap-2 lg:flex-row flex-col">
         <button onClick={modalHandler} className="bg-[#F0F0F0] text-[18px] rounded-full  font-medium py-2 sm:py-2.5 px-4 sm:px-6 sm:max-w-[180px] w-full hover:bg-gray-200">
           Save Report
         </button>
